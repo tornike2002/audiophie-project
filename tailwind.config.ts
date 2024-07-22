@@ -14,6 +14,9 @@ const config: Config = {
       backgroundColor: {
         darkBlack: "#191919",
       },
+      fontFamily: {
+        Manrope: ["Manrope", "sans-serif"],
+      },
     },
   },
   plugins: [],
