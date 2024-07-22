@@ -9,9 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        mobileHeader: "url('/assets/home/mobile/image-header.jpg')",
+      },
+      backgroundColor: {
+        darkBlack: "#191919",
+        customYellow: "#D87D4A",
+      },
+      fontFamily: {
+        Manrope: ["Manrope", "sans-serif"],
       },
     },
   },
