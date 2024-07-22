@@ -2,8 +2,10 @@ import Navbar from "../components/Navbar";
 
 export default function Home() {
   return (
-    <main className="bg-black">
-      <Navbar />;
+    <main>
+      <section className="bg-mobileHeader">
+        <h1> hello</h1>
+      </section>
     </main>
   );
 }
