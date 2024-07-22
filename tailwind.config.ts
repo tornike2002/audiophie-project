@@ -13,6 +13,7 @@ const config: Config = {
       },
       backgroundColor: {
         darkBlack: "#191919",
+        customYellow: "#D87D4A",
       },
       fontFamily: {
         Manrope: ["Manrope", "sans-serif"],
