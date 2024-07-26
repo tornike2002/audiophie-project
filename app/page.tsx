@@ -5,6 +5,8 @@ import earphone from "../public/assets/product-yx1-earphones/mobile/image-produc
 import ThreeProduct from "@/components/ThreeProduct";
 import Cardspeaker from "../public/assets/home/mobile/image-speaker-zx9.png";
 import YellowBanner from "@/components/YellowBanner";
+import greySpeaker from "../public/assets/home/mobile/image-speaker-zx7.jpg";
+import Image from "next/image";
 export default function Home() {
   return (
     <main>
@@ -35,13 +37,34 @@ export default function Home() {
         <ThreeProduct image={earphone} link="Shop" title="earphones" />
       </section>
 
-      {/* yello board card  */}
+      {/* yellow board card  */}
       <section>
         <YellowBanner
           about="Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound."
           image={Cardspeaker}
           buttonText="See Product"
         />
+      </section>
+      {/* speaker banner */}
+      <section className="mx-6 relative">
+        <div>
+          <Image src={greySpeaker} alt="picture" />
+        </div>
+        <div className="absolute top-28 left-14">
+          <h1
+            className="text-black font-Manrope text-[28px] 
+          font-bold tracking-[2px] uppercase pb-8"
+          >
+            ZX7 SPEAKER
+          </h1>
+          <button
+            className="text-black font-Manrope text-sm font-bold
+           tracking-[1px] uppercase bg-transparent 
+           border py-[15px] px-[30px] border-black"
+          >
+            SEE PRODUCT
+          </button>
+        </div>
       </section>
     </main>
   );

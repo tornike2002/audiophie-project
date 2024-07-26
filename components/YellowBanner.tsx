@@ -6,7 +6,7 @@ type YellowBannerTypes = {
 };
 const YellowBanner = ({ image, about, buttonText }: YellowBannerTypes) => {
   return (
-    <section className="bg-customYellow  py-[55px] mx-6 mt-24">
+    <section className="bg-customYellow  py-[55px] mx-6 mt-24 mb-10">
       <div
         className="flex flex-col items-center 
     justify-center gap-6 "
