@@ -6,6 +6,7 @@ import ThreeProduct from "@/components/ThreeProduct";
 import Cardspeaker from "../public/assets/home/mobile/image-speaker-zx9.png";
 import YellowBanner from "@/components/YellowBanner";
 import greySpeaker from "../public/assets/home/mobile/image-speaker-zx7.jpg";
+import blackairpods from "../public/assets/home/mobile/image-earphones-yx1.jpg";
 import Image from "next/image";
 export default function Home() {
   return (
@@ -56,6 +57,25 @@ export default function Home() {
           font-bold tracking-[2px] uppercase pb-8"
           >
             ZX7 SPEAKER
+          </h1>
+          <button
+            className="text-black font-Manrope text-sm font-bold
+           tracking-[1px] uppercase bg-transparent 
+           border py-[15px] px-[30px] border-black"
+          >
+            SEE PRODUCT
+          </button>
+        </div>
+      </section>
+      {/* airpods black section */}
+      <section className="mx-6 mt-10 mb-6">
+        <div>
+          <Image src={blackairpods} alt="picture" />
+          <h1
+            className="text-black font-Manrope text-[28px] 
+          font-bold tracking-[2px] uppercase py-8"
+          >
+            YX1 EARPHONES
           </h1>
           <button
             className="text-black font-Manrope text-sm font-bold
