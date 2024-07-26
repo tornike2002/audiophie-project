@@ -1,5 +1,9 @@
 import Button from "@/components/Button";
 import Image from "next/image";
+import Link from "next/link";
+import headphone from "../public/assets/product-xx99-mark-one-headphones/mobile/image-product.jpg";
+import speaker from "../public/assets/product-zx9-speaker/mobile/image-product.jpg";
+import earphone from "../public/assets/product-yx1-earphones/mobile/image-product.jpg";
 export default function Home() {
   return (
     <main>
@@ -23,15 +27,39 @@ export default function Home() {
         </div>
       </section>
       {/* three product with shop link */}
-      <section>
-        <div>
-          <Image src={""} alt="shop item" />
+      <section className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center">
+          <Image src={headphone} alt="shop item" width={80} height={104} />
+          <h2
+            className="font-Manrope text-black text-center text-[15px] font-bold 
+          tracking-[1.071px] uppercase"
+          >
+            Headphones
+          </h2>
+          <Link href="/" className="text-black font-Manrope text-[13px] font-bold tracking-[1px]
+           uppercase opacity-50">Shop</Link>
         </div>
-        <div>
-          <Image src={""} alt="shop item" />
+        <div className="flex flex-col items-center justify-center">
+          <Image src={speaker} alt="shop item" width={80} height={104} />
+          <h2
+            className="font-Manrope text-black text-center text-[15px] font-bold 
+          tracking-[1.071px] uppercase"
+          >
+            Speakers
+          </h2>
+          <Link href="/" className="text-black font-Manrope text-[13px] font-bold tracking-[1px]
+           uppercase opacity-50">Shop</Link>
         </div>
-        <div>
-          <Image src={""} alt="shop item" />
+        <div className="flex flex-col items-center justify-center">
+          <Image src={earphone} alt="shop item" width={80} height={104} />
+          <h2
+            className="font-Manrope text-black text-center text-[15px] font-bold 
+          tracking-[1.071px] uppercase"
+          >
+            Earphones
+          </h2>
+          <Link href="/" className="text-black font-Manrope text-[13px] font-bold tracking-[1px]
+           uppercase opacity-50">Shop</Link>
         </div>
       </section>
     </main>
