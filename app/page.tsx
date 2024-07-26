@@ -1,5 +1,5 @@
 import Button from "@/components/Button";
-
+import Image from "next/image";
 export default function Home() {
   return (
     <main>
@@ -20,6 +20,18 @@ export default function Home() {
             made for the passionate music enthusiast.
           </p>
           <Button name="SEE PRODUCT" />
+        </div>
+      </section>
+      {/* three product with shop link */}
+      <section>
+        <div>
+          <Image src={""} alt="shop item" />
+        </div>
+        <div>
+          <Image src={""} alt="shop item" />
+        </div>
+        <div>
+          <Image src={""} alt="shop item" />
         </div>
       </section>
     </main>
