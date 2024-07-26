@@ -18,6 +18,9 @@ const config: Config = {
       fontFamily: {
         Manrope: ["Manrope", "sans-serif"],
       },
+      colors: {
+        customYellow: "#D87D4A",
+      },
     },
   },
   plugins: [],
