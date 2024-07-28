@@ -3,6 +3,11 @@ import ProductDisplay from "@/components/ProductDisplay";
 import headphonex99two from "../../public/assets/product-xx99-mark-two-headphones/mobile/image-category-page-preview.jpg";
 import headphonex99one from "../../public/assets/product-xx99-mark-one-headphones/mobile/image-category-page-preview.jpg";
 import headphonex59 from "../../public/assets/product-xx59-headphones/mobile/image-category-page-preview.jpg";
+import ThreeProduct from "@/components/ThreeProduct";
+// three component
+import headphone from "../../public/assets/product-xx99-mark-one-headphones/mobile/image-product.jpg";
+import speaker from "../../public/assets/product-zx9-speaker/mobile/image-product.jpg";
+import earphone from "../../public/assets/product-yx1-earphones/mobile/image-product.jpg";
 const Headphones = () => {
   return (
     <>
@@ -25,6 +30,11 @@ const Headphones = () => {
         title={`XX59 Headphones`}
         about="Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move."
       />
+      <section className="flex flex-col items-center justify-center my-5 mx-6">
+        <ThreeProduct image={headphone} link="Shop" title="headphones" />
+        <ThreeProduct image={speaker} link="Shop" title="speakers" />
+        <ThreeProduct image={earphone} link="Shop" title="earphones" />
+      </section>
     </>
   );
 };
