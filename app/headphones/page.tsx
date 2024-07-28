@@ -1,5 +1,7 @@
 const Headphones = () => {
-  return <div>Headphones</div>;
+  return (
+ 
+  );
 };
 
 export default Headphones;
