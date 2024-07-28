@@ -8,6 +8,7 @@ import YellowBanner from "@/components/YellowBanner";
 import greySpeaker from "../public/assets/home/mobile/image-speaker-zx7.jpg";
 import blackairpods from "../public/assets/home/mobile/image-earphones-yx1.jpg";
 import Image from "next/image";
+import Blog from "@/components/Blog";
 export default function Home() {
   return (
     <main>
@@ -86,8 +87,8 @@ export default function Home() {
           </button>
         </div>
       </section>
-      {/* info section */}
-   
+      {/* blog section */}
+      <Blog />
     </main>
   );
 }
