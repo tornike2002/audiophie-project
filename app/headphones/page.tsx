@@ -8,6 +8,7 @@ import ThreeProduct from "@/components/ThreeProduct";
 import headphone from "../../public/assets/product-xx99-mark-one-headphones/mobile/image-product.jpg";
 import speaker from "../../public/assets/product-zx9-speaker/mobile/image-product.jpg";
 import earphone from "../../public/assets/product-yx1-earphones/mobile/image-product.jpg";
+import Blog from "@/components/Blog";
 const Headphones = () => {
   return (
     <>
@@ -30,11 +31,12 @@ const Headphones = () => {
         title={`XX59 Headphones`}
         about="Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move."
       />
-      <section className="flex flex-col items-center justify-center my-5 mx-6">
+      <section className="flex flex-col items-center justify-center mt-5 mb-24 mx-6">
         <ThreeProduct image={headphone} link="Shop" title="headphones" />
         <ThreeProduct image={speaker} link="Shop" title="speakers" />
         <ThreeProduct image={earphone} link="Shop" title="earphones" />
       </section>
+      <Blog />
     </>
   );
 };
