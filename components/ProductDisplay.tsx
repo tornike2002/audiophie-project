@@ -12,7 +12,7 @@ const ProductDisplay = ({
   about,
 }: ProductDisplayTypes) => {
   return (
-    <section className="mb-10 mx-6 mt-6">
+    <section className="mb-24 mx-6 mt-6">
       <div
         className="flex flex-col justify-center 
       items-center text-center gap-6"
