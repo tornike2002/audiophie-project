@@ -59,6 +59,44 @@ const ProductsDetails = ({ params }: { params: any }) => {
                   </div>
                   <Button name="ADD TO CART" />
                 </div>
+                {/* feature */}
+                <div
+                  className="font-Manrope flex flex-col justify-start 
+                w-full mt-[88px]"
+                >
+                  <h1
+                    className="text-black text-2xl font-bold leading-9 
+                  tracking-[0.857px] uppercase pb-6"
+                  >
+                    Features
+                  </h1>
+                  <p className="text-black text-[15px] leading-[25px] opacity-50">
+                    {productsInfo.features}
+                  </p>
+                </div>
+                {/* in the box */}
+                <div className="w-full mt-[88px]">
+                  <h1
+                    className="text-black text-2xl font-bold leading-9 
+                  tracking-[0.857px] uppercase pb-6"
+                  >
+                    In the box
+                  </h1>
+                  {productsInfo.includes.map((quan) => {
+                    return (
+                      <div className="flex flex-col items-center flex-start font-Manrope ">
+                        <h3 className="flex gap-6 flex-start w-full">
+                          <span className="text-customYellow text-[15px] font-bold leading-[25px]">
+                            {quan.quantity}x
+                          </span>
+                          <span className="text-black text-[15px] leading-[25px] opacity-50 ">
+                            {quan.item}
+                          </span>
+                        </h3>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </>
           );
