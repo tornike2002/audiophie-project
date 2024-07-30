@@ -1,14 +1,19 @@
 import ProductDisplay from "@/components/ProductDisplay";
-import yx1wireless from "../../public/assets/product-yx1-earphones/mobile/image-category-page-preview.jpg";
+import yx1wireless from "../../../public/assets/product-yx1-earphones/mobile/image-category-page-preview.jpg";
 import CustomHeaderBanner from "@/components/CustomHeaderBanner";
 // three component
-import headphone from "../../public/assets/product-xx99-mark-one-headphones/mobile/image-product.jpg";
-import speaker from "../../public/assets/product-zx9-speaker/mobile/image-product.jpg";
-import earphone from "../../public/assets/product-yx1-earphones/mobile/image-product.jpg";
+import headphone from "../../../public/assets/product-xx99-mark-one-headphones/mobile/image-product.jpg";
+import speaker from "../../../public/assets/product-zx9-speaker/mobile/image-product.jpg";
+import earphone from "../../../public/assets/product-yx1-earphones/mobile/image-product.jpg";
 import ThreeProduct from "@/components/ThreeProduct";
 import Blog from "@/components/Blog";
+import data from "../../../data/data.json";
 
-const Earphones = () => {
+const ProductsInfo = ({ params }: { params: any }) => {
+  const filtered = data.filter(
+    (productCategory) =>
+      productCategory.category.toLowerCase() === params.productsPage
+  );
   return (
     <>
       <CustomHeaderBanner text="earphones" />
@@ -28,4 +33,4 @@ const Earphones = () => {
   );
 };
 
-export default Earphones;
+export default ProductsInfo;
