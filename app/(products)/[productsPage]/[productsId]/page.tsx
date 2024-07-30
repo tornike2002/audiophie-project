@@ -1,19 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import data from "../../../../data/data.json";
+import Button from "@/components/Button";
 
 const ProductsDetails = ({ params }: { params: any }) => {
   const filtered = data.filter((proId) => proId.id == params.productsId);
 
   return (
-    <>
+    <div className="my-8">
       <Link
         className="mx-6 text-black opacity-50 font-Manrope text-[15px] leading-[25px]"
         href={"/"}
       >
         Go Back
       </Link>
-      <section className="mx-6">
+      <div className="mx-6 my-7">
         {filtered.map((productsInfo) => {
           return (
             <>
@@ -29,6 +30,7 @@ const ProductsDetails = ({ params }: { params: any }) => {
                     height={201}
                   />
                 </div>
+                {/* description */}
                 <div className="flex flex-col gap-6 items-start justify-start font-Manrope">
                   <h2
                     className="text-customYellow text-center font-Manrope text-sm 
@@ -46,12 +48,23 @@ const ProductsDetails = ({ params }: { params: any }) => {
                     $ {productsInfo.price}
                   </span>
                 </div>
+                {/* item count */}
+                <div className="flex w-full justify-start items-center gap-4 mt-8">
+                  <div className="flex items-center gap-5 text-black font-Manrope">
+                    <span className="opacity-50">-</span>
+                    <span className=" text-[13px] font-bold tracking-[1px] uppercase">
+                      1
+                    </span>
+                    <span className="opacity-50">+</span>
+                  </div>
+                  <Button name="ADD TO CART" />
+                </div>
               </div>
             </>
           );
         })}
-      </section>
-    </>
+      </div>
+    </div>
   );
 };
 
