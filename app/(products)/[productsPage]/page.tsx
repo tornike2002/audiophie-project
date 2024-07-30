@@ -18,19 +18,22 @@ const ProductsInfo = ({ params }: { params: any }) => {
       <CustomHeaderBanner text="earphones" />
       {filtered.map((products) => {
         return (
-          <>
+          <div key={products.id}>
             <ProductDisplay
               image={products.image.mobile}
               isNew={products.new}
               title={products.name}
               about={products.description}
+              productId={products.id}
+              finder={`${params.productsPage}`}
+              finderId={`${products.id}`}
             />
             <section className="flex flex-col items-center justify-center mt-5 mb-24 mx-6">
               <ThreeProduct image={headphone} link="Shop" title="headphones" />
               <ThreeProduct image={speaker} link="Shop" title="speakers" />
               <ThreeProduct image={earphone} link="Shop" title="earphones" />
             </section>
-          </>
+          </div>
         );
       })}
       <Blog />

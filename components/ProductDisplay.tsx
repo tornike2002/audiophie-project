@@ -1,16 +1,23 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
+import Link from "next/link";
 type ProductDisplayTypes = {
   image: string;
   isNew: boolean;
   title: string;
   about: string;
+  productId: number;
+  finder: string;
+  finderId: string;
 };
 const ProductDisplay = ({
   image,
   isNew,
   title,
   about,
+  finder,
+  finderId,
 }: ProductDisplayTypes) => {
+  console.log(finderId);
   return (
     <section className="mb-24 mx-6 mt-6">
       <div
@@ -33,14 +40,16 @@ const ProductDisplay = ({
         <p className="text-black font-Manrope text-[15px] leading-[25px] opacity-50">
           {about}
         </p>
-        <button
-          type="button"
-          className="bg-customYellow border-none
+        <Link href={`/${finder}/${finderId}`}>
+          <button
+            type="button"
+            className="bg-customYellow border-none
            text-white py-[20px] px-[30px] font-Manrope 
            font-bold text-[13px] leading-[1px] uppercase"
-        >
-          SEE PRODUCT
-        </button>
+          >
+            SEE PRODUCT
+          </button>
+        </Link>
       </div>
     </section>
   );
