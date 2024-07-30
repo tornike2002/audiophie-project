@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 type ProductDisplayTypes = {
-  image: StaticImageData;
-  isNew: string | null;
+  image: string;
+  isNew: boolean;
   title: string;
   about: string;
 };
@@ -17,12 +17,12 @@ const ProductDisplay = ({
         className="flex flex-col justify-center 
       items-center text-center gap-6"
       >
-        <Image src={image} alt="image" />
+        <Image src={image} alt="image" width={220} height={243} />
         <h2
           className="text-customYellow text-center font-Manrope text-sm 
         tracking-[10px] uppercase"
         >
-          {isNew}
+          {isNew && `NEW PRODUCT`}
         </h2>
         <h1
           className="text-black text-center font-manrope text-[28px] 
