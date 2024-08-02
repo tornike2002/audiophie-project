@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import data from "../../../../data/data.json";
-import Button from "@/components/Button";
 import headphone from "../../../../public/assets/product-xx99-mark-one-headphones/mobile/image-product.jpg";
 import speaker from "../../../../public/assets/product-zx9-speaker/mobile/image-product.jpg";
 import earphone from "../../../../public/assets/product-yx1-earphones/mobile/image-product.jpg";

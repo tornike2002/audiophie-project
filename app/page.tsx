@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import CustomButton from "@/components/CustomButton";
 import headphone from "../public/assets/product-xx99-mark-one-headphones/mobile/image-product.jpg";
 import speaker from "../public/assets/product-zx9-speaker/mobile/image-product.jpg";
 import earphone from "../public/assets/product-yx1-earphones/mobile/image-product.jpg";
@@ -28,7 +28,7 @@ export default function Home() {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <Button name="SEE PRODUCT" />
+          <CustomButton name="SEE PRODUCT" />
         </div>
       </section>
 

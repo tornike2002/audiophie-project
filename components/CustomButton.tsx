@@ -2,7 +2,7 @@ import React from "react";
 type ButtonTypes = {
   name: string;
 };
-const Button = ({ name }: ButtonTypes) => {
+const CustomButton = ({ name }: ButtonTypes) => {
   return (
     <button
       type="button"
@@ -14,4 +14,4 @@ const Button = ({ name }: ButtonTypes) => {
   );
 };
 
-export default Button;
+export default CustomButton;

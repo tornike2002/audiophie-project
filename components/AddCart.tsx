@@ -1,15 +1,16 @@
 "use client";
 import { useState } from "react";
-import Button from "./Button";
+import CustomButton from "./CustomButton";
 const AddCart = () => {
   const [count, setCount] = useState<number>(1);
+  //   increasing values
   const handleValueIncrement = () => {
     if (count >= 10) {
       return;
     }
     setCount((value) => value + 1);
   };
-
+  // decreasing values
   const handleValueDecrement = () => {
     if (count <= 1) {
       return;
@@ -35,7 +36,7 @@ const AddCart = () => {
           +
         </span>
       </div>
-      <Button name="ADD TO CART" />
+      <CustomButton name="ADD TO CART" />
     </div>
   );
 };
