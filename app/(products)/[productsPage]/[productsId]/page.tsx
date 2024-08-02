@@ -6,6 +6,7 @@ import headphone from "../../../../public/assets/product-xx99-mark-one-headphone
 import speaker from "../../../../public/assets/product-zx9-speaker/mobile/image-product.jpg";
 import earphone from "../../../../public/assets/product-yx1-earphones/mobile/image-product.jpg";
 import ThreeProduct from "@/components/ThreeProduct";
+import Blog from "@/components/Blog";
 const ProductsDetails = ({ params }: { params: any }) => {
   const filtered = data.filter((proId) => proId.id == params.productsId);
 
@@ -138,6 +139,7 @@ const ProductsDetails = ({ params }: { params: any }) => {
         <ThreeProduct image={speaker} link="Shop" title="speakers" />
         <ThreeProduct image={earphone} link="Shop" title="earphones" />
       </section>
+      <Blog />
     </div>
   );
 };
