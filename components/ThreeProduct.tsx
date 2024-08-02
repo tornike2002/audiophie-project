@@ -16,7 +16,7 @@ const ThreeProduct = ({ image, title, link }: ThreeProductTypes) => {
         {title}
       </h2>
       <Link
-        href="/"
+        href={`/${title}`}
         className="text-black font-Manrope text-[13px] font-bold tracking-[1px]
      uppercase opacity-50"
       >
