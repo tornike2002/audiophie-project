@@ -2,7 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import data from "../../../../data/data.json";
 import Button from "@/components/Button";
-
+import headphone from "../../../../public/assets/product-xx99-mark-one-headphones/mobile/image-product.jpg";
+import speaker from "../../../../public/assets/product-zx9-speaker/mobile/image-product.jpg";
+import earphone from "../../../../public/assets/product-yx1-earphones/mobile/image-product.jpg";
+import ThreeProduct from "@/components/ThreeProduct";
+import Blog from "@/components/Blog";
 const ProductsDetails = ({ params }: { params: any }) => {
   const filtered = data.filter((proId) => proId.id == params.productsId);
 
@@ -97,11 +101,45 @@ const ProductsDetails = ({ params }: { params: any }) => {
                     );
                   })}
                 </div>
+                {/* gallery */}
+                <section className=" flex flex-col gap-5 mt-24">
+                  <div className="flex flex-col gap-5">
+                    <Image
+                      src={productsInfo.gallery.first.mobile}
+                      alt={"mobile picture"}
+                      width={335}
+                      height={223}
+                      className="rounded-lg"
+                    />
+                    <Image
+                      src={productsInfo.gallery.second.mobile}
+                      alt={"mobile picture"}
+                      width={335}
+                      height={223}
+                      className="rounded-lg"
+                    />
+                  </div>
+                  <div className="">
+                    <Image
+                      src={productsInfo.gallery.third.mobile}
+                      alt={"mobile picture"}
+                      width={335}
+                      height={223}
+                      className="rounded-lg"
+                    />
+                  </div>
+                </section>
               </div>
             </>
           );
         })}
       </div>
+      <section className="flex flex-col items-center justify-center mt-5 mb-24 mx-6">
+        <ThreeProduct image={headphone} link="Shop" title="headphones" />
+        <ThreeProduct image={speaker} link="Shop" title="speakers" />
+        <ThreeProduct image={earphone} link="Shop" title="earphones" />
+      </section>
+      <Blog />
     </div>
   );
 };
