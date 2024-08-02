@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
-import { Button, Modal } from "antd";
-
+import { Modal } from "antd";
+import Image from "next/image";
+import CartIcon from "../public/assets/shared/desktop/icon-cart.svg";
 const Cart = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -17,12 +18,16 @@ const Cart = () => {
     setIsModalOpen(false);
   };
   return (
-    <>
-      <Button type="primary" onClick={showModal}>
-        Open Modal
-      </Button>
+    <div>
+      <Image
+        src={CartIcon}
+        alt="Cart"
+        className="cursor-pointer"
+        onClick={showModal}
+      />
+      {/* modal */}
       <Modal
-        title="Basic Modal"
+        title={`Cart (${0})`}
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
@@ -31,7 +36,7 @@ const Cart = () => {
         <p>Some contents...</p>
         <p>Some contents...</p>
       </Modal>
-    </>
+    </div>
   );
 };
 
