@@ -7,6 +7,7 @@ import speaker from "../../../../public/assets/product-zx9-speaker/mobile/image-
 import earphone from "../../../../public/assets/product-yx1-earphones/mobile/image-product.jpg";
 import ThreeProduct from "@/components/ThreeProduct";
 import Blog from "@/components/Blog";
+import AddCart from "@/components/AddCart";
 const ProductsDetails = ({ params }: { params: any }) => {
   const filtered = data.filter((proId) => proId.id == params.productsId);
 
@@ -53,16 +54,7 @@ const ProductsDetails = ({ params }: { params: any }) => {
                   </span>
                 </div>
                 {/* item count */}
-                <div className="flex w-full justify-start items-center gap-4 mt-8">
-                  <div className="flex items-center gap-5 text-black font-Manrope">
-                    <span className="opacity-50">-</span>
-                    <span className=" text-[13px] font-bold tracking-[1px] uppercase">
-                      1
-                    </span>
-                    <span className="opacity-50">+</span>
-                  </div>
-                  <Button name="ADD TO CART" />
-                </div>
+                <AddCart />
                 {/* feature */}
                 <div
                   className="font-Manrope flex flex-col justify-start 
