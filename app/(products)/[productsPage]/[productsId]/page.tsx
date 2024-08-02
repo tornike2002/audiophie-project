@@ -97,6 +97,34 @@ const ProductsDetails = ({ params }: { params: any }) => {
                     );
                   })}
                 </div>
+                {/* gallery */}
+                <section className=" flex flex-col gap-5 mt-24">
+                  <div className="flex flex-col gap-5">
+                    <Image
+                      src={productsInfo.gallery.first.mobile}
+                      alt={"mobile picture"}
+                      width={335}
+                      height={223}
+                      className="rounded-lg"
+                    />
+                    <Image
+                      src={productsInfo.gallery.second.mobile}
+                      alt={"mobile picture"}
+                      width={335}
+                      height={223}
+                      className="rounded-lg"
+                    />
+                  </div>
+                  <div className="">
+                    <Image
+                      src={productsInfo.gallery.third.mobile}
+                      alt={"mobile picture"}
+                      width={335}
+                      height={223}
+                      className="rounded-lg"
+                    />
+                  </div>
+                </section>
               </div>
             </>
           );
