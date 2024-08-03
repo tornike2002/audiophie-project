@@ -53,7 +53,10 @@ const ProductsDetails = ({ params }: { params: any }) => {
                   </span>
                 </div>
                 {/* item count */}
-                <AddCart />
+                <AddCart
+                  price={productsInfo.price}
+                  title={productsInfo.name}
+                  image={productsInfo.image.mobile}                 />
                 {/* feature */}
                 <div
                   className="font-Manrope flex flex-col justify-start 
