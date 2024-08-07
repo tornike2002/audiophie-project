@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
-import { Modal } from "antd";
-import Image from "next/image";
 import CartIcon from "../public/assets/shared/desktop/icon-cart.svg";
-const Cart = () => {
+import Image from "next/image";
+import { Modal } from "antd";
+
+const CartClient = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -17,6 +18,9 @@ const Cart = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+  // get items from local storage
+  const cartItems = localStorage.getItem("cartItems");
+  console.log(cartItems);
   return (
     <div>
       <Image
@@ -27,17 +31,23 @@ const Cart = () => {
       />
       {/* modal */}
       <Modal
-        title={`Cart (${0})`}
+        title={`Cart ()`}
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        {length === 0 ? (
+          "Cart is empty"
+        ) : (
+          <div>
+            <Image src={``} alt="Product" width={64} height={64} />
+            <p></p>
+            <p></p>
+          </div>
+        )}
       </Modal>
     </div>
   );
 };
 
-export default Cart;
+export default CartClient;

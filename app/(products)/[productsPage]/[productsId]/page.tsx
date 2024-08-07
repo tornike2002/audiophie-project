@@ -56,7 +56,9 @@ const ProductsDetails = ({ params }: { params: any }) => {
                 <AddCart
                   price={productsInfo.price}
                   title={productsInfo.name}
-                  image={productsInfo.image.mobile}                 />
+                  image={productsInfo.image.mobile}
+                  id={productsInfo.id}
+                />
                 {/* feature */}
                 <div
                   className="font-Manrope flex flex-col justify-start 

@@ -1,6 +1,6 @@
 type ButtonTypes = {
   name: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 const CustomButton = ({ name, onClick }: ButtonTypes) => {
   return (
