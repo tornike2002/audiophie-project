@@ -11,5 +11,6 @@
 
 .ant-modal-content {
   overflow-y: scroll !important;
-  height: 450px !important;
+  height: 488px !important;
+  max-width: 400px !important;
 }

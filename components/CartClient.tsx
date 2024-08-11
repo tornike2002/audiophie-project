@@ -20,10 +20,6 @@ const CartClient = () => {
     setIsModalOpen(true);
   };
 
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
   const handleCancel = () => {
     setIsModalOpen(false);
   };
@@ -66,15 +62,17 @@ const CartClient = () => {
       <Modal
         title={`Cart (${cartData.length})`}
         open={isModalOpen}
-        onOk={handleOk}
         onCancel={handleCancel}
+        footer={null} // Remove Ok and Cancel buttons
       >
         {cartData.map((item: SubmitTypes) => {
           return (
-            <div key={item.id}>
+            <div key={item.id} className="flex items-center justify-between">
               <Image src={item.image} alt="Product" width={64} height={64} />
-              <div>
-                <p>{item.title}</p>
+              <div className="flex flex-col gap-1 flex-start items-start w-[140px]">
+                <p className="font-Manrope text-black text-[15px] font-bold leading-6">
+                  {item.title}
+                </p>
                 <p>{item.price}</p>
               </div>
               <div>
