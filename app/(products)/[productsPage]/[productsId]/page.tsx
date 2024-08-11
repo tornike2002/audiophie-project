@@ -58,6 +58,7 @@ const ProductsDetails = ({ params }: { params: any }) => {
                   title={productsInfo.name}
                   image={productsInfo.image.mobile}
                   id={productsInfo.id}
+                  count={0}
                 />
                 {/* feature */}
                 <div

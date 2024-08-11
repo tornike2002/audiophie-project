@@ -1,25 +1,26 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CustomButton from "./CustomButton";
 
-type SubmitTypes = {
+export type SubmitTypes = {
   image: string;
   title: string;
   price: number;
   id: number;
+  count: number;
 };
 
 const AddCart = ({ image, title, price, id }: SubmitTypes) => {
   const [count, setCount] = useState<number>(1);
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 0,
-      image: "",
-      title: "",
-      price: 0,
-      count: 0,
-    },
-  ]);
+  const [cartItems, setCartItems] = useState<SubmitTypes[]>([]);
+
+  // Load cart items from local storage on component mount
+  useEffect(() => {
+    const storedCartItems = localStorage.getItem("cartItems");
+    if (storedCartItems) {
+      setCartItems(JSON.parse(storedCartItems));
+    }
+  }, []);
 
   // Increasing values
   const handleValueIncrement = () => {
@@ -38,19 +39,20 @@ const AddCart = ({ image, title, price, id }: SubmitTypes) => {
   };
 
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    const newCartItems = [
-      {
-        id: id,
-        image: image,
-        title: title,
-        price: price,
-        count: count,
-      },
-    ];
-    setCartItems(newCartItems);
-    // setting in localstorage
-    localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+ 
+    const newItem = {
+      image: image,
+      title: title,
+      price: price,
+      id: Math.random(),
+      count: count,
+    };
+
+    setCartItems((prevItems) => {
+      const updatedItems = [...prevItems, newItem];
+      localStorage.setItem("cartItems", JSON.stringify(updatedItems));
+      return updatedItems;
+    });
   };
 
   return (
