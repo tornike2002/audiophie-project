@@ -56,6 +56,12 @@ const CartClient = () => {
     return cartData.reduce((total, item) => total + item.price * item.count, 0);
   };
 
+  // Remove all items
+  const handleRemoveAll = () => {
+    setCartData([]);
+    localStorage.removeItem("cartItems");
+  };
+
   return (
     <div>
       <Image
@@ -116,9 +122,16 @@ const CartClient = () => {
           </p>
           <button
             type="button"
-            className="bg-customYellow text-white w-full border-0 py-3"
+            className="bg-customYellow text-white w-full border-0 py-3 uppercase tracking-[1.5px]"
           >
             Checkout
+          </button>
+          <button
+            type="button"
+            className="bg-red-500 text-white w-full border-0 py-3 uppercase tracking-[1.5px]"
+            onClick={handleRemoveAll}
+          >
+            Remove All Items
           </button>
         </div>
       </Modal>
