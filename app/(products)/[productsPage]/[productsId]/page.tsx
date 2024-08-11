@@ -55,7 +55,7 @@ const ProductsDetails = ({ params }: { params: any }) => {
                 {/* item count */}
                 <AddCart
                   price={productsInfo.price}
-                  title={productsInfo.name}
+                  title={productsInfo.slug}
                   image={productsInfo.image.mobile}
                   id={productsInfo.id}
                   count={0}

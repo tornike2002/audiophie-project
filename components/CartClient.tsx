@@ -1,15 +1,21 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CartIcon from "../public/assets/shared/desktop/icon-cart.svg";
 import Image from "next/image";
 import { Modal } from "antd";
 import { SubmitTypes } from "./AddCart";
+
 const CartClient = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [countCart, setCountCart] = useState<number>(1);
-  const [cartData, setCartData] = useState(
-    JSON.parse(localStorage.getItem("cartItems") || "")
-  );
+  const [cartData, setCartData] = useState<SubmitTypes[]>([]);
+
+  useEffect(() => {
+    const cartItems = localStorage.getItem("cartItems");
+    if (cartItems) {
+      setCartData(JSON.parse(cartItems));
+    }
+  }, []);
+
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -21,30 +27,33 @@ const CartClient = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  // get items from local storage
 
-  // increasing values
-
+  // Increasing values
   const handleValueIncrement = (id: number) => {
-    setCartData((prevItems: SubmitTypes[]) =>
-      prevItems.map((item: SubmitTypes) =>
-        item.id === id ? { ...item, count: item.count + 1 } : item
-      )
-    );
+    setCartData((prevCartData) => {
+      const updatedCartData = prevCartData.map((item) =>
+        item.id === id && item.count < 10
+          ? { ...item, count: item.count + 1 }
+          : item
+      );
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartData));
+      return updatedCartData;
+    });
   };
 
   // Decreasing values
   const handleValueDecrement = (id: number) => {
-    if (countCart <= 1) {
-      return;
-    }
-    setCartData((prevItems: SubmitTypes[]) =>
-      prevItems.map((item: SubmitTypes) =>
-        item.id === id ? { ...item, count: item.count - 1 } : item
-      )
-    );
+    setCartData((prevCartData) => {
+      const updatedCartData = prevCartData.map((item) =>
+        item.id === id && item.count > 1
+          ? { ...item, count: item.count - 1 }
+          : item
+      );
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartData));
+      return updatedCartData;
+    });
   };
-  console.log(cartData);
+
   return (
     <div>
       <Image
