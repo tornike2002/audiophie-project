@@ -61,6 +61,10 @@ const CartClient = () => {
     setCartData([]);
     localStorage.removeItem("cartItems");
   };
+  // make a function to add total price in local storage
+  const totalPriceLocalStorage = () => {
+    localStorage.setItem("totalPrice", JSON.stringify(calculateTotalPrice()));
+  };
 
   return (
     <div>
@@ -122,6 +126,7 @@ const CartClient = () => {
           </p>
           <button
             type="button"
+            onClick={totalPriceLocalStorage}
             className="bg-customYellow text-white w-full border-0 py-3 uppercase tracking-[1.5px]"
           >
             Checkout
