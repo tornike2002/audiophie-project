@@ -13,7 +13,6 @@ export type SubmitTypes = {
 const AddCart = ({ image, title, price, id }: SubmitTypes) => {
   const [count, setCount] = useState<number>(1);
   const [cartItems, setCartItems] = useState<SubmitTypes[]>([]);
-
   // Load cart items from local storage on component mount
   useEffect(() => {
     const storedCartItems = localStorage.getItem("cartItems");
@@ -38,8 +37,8 @@ const AddCart = ({ image, title, price, id }: SubmitTypes) => {
     setCount((value: number) => value - 1);
   };
 
+
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
- 
     const newItem = {
       image: image,
       title: title,

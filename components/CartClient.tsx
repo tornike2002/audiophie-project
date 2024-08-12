@@ -4,7 +4,6 @@ import CartIcon from "../public/assets/shared/desktop/icon-cart.svg";
 import Image from "next/image";
 import { Modal } from "antd";
 import { SubmitTypes } from "./AddCart";
-import CustomButton from "./CustomButton";
 import Link from "next/link";
 
 const CartClient = () => {
@@ -25,6 +24,7 @@ const CartClient = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+  
 
   // Increasing values
   const handleValueIncrement = (id: number) => {

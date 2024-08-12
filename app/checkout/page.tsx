@@ -2,6 +2,10 @@
 import Link from "next/link";
 import { Button, Form, Input, Select, Space } from "antd";
 import { useEffect, useState } from "react";
+import React, { useMemo } from "react";
+
+import { notification } from "antd";
+import type { NotificationArgsProps } from "antd";
 const { Option } = Select;
 
 const layout = {
@@ -13,6 +17,8 @@ const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
 
+type NotificationPlacement = NotificationArgsProps["placement"];
+const Context = React.createContext({ name: "Default" });
 
 const CheckoutPage = () => {
   const [totalPrice, setTotalPrice] = useState<number>(0);
@@ -29,7 +35,20 @@ const CheckoutPage = () => {
       setTotalPrice(JSON.parse(totalPriceNumber) as number);
     }
   }, []);
+  const [api, contextHolder] = notification.useNotification();
+  const openNotification = (placement: NotificationPlacement) => {
+    api.info({
+      message: `Notification ${placement}`,
+      description: (
+        <Context.Consumer>{({ name }) => `Hello, ${name}!`}</Context.Consumer>
+      ),
+      placement,
+    });
+    localStorage.removeItem("cartItems");
+    localStorage.removeItem("totalPrice");
+  };
 
+  const contextValue = useMemo(() => ({ name: "Your Order is Complited" }), []);
   return (
     <section className="px-6 py-5">
       <Link
@@ -157,12 +176,17 @@ const CheckoutPage = () => {
               ${totalPrice + 50}
             </span>
           </div>
-          <button
-            type="button"
-            className="px-5 py-3 bg-customYellow rounded-md text-white font-bold font-Manrope"
-          >
-            Order
-          </button>
+          <Context.Provider value={contextValue}>
+            {contextHolder}
+            <Space>
+              <Button
+                type="primary"
+                onClick={() => openNotification("topLeft")}
+              >
+                Order
+              </Button>
+            </Space>
+          </Context.Provider>
         </div>
       </div>
     </section>
