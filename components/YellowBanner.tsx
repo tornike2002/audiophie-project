@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 type YellowBannerTypes = {
   image: StaticImageData;
   about: string;
@@ -25,12 +26,15 @@ const YellowBanner = ({ image, about, buttonText }: YellowBannerTypes) => {
         >
           {about}
         </p>
-        <button
-          className="bg-black text-white py-[15px] px-[31px]"
-          type="button"
-        >
-          {buttonText}
-        </button>
+
+        <Link href="/speakers/6">
+          <button
+            className="bg-black text-white py-[15px] px-[31px]"
+            type="button"
+          >
+            {buttonText}
+          </button>
+        </Link>
       </div>
     </section>
   );

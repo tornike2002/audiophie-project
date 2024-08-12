@@ -11,7 +11,9 @@ const Footer = () => {
     justify-center items-center px-6"
     >
       <hr className="border-customYellow w-24 border-2" />
-      <Image src={logo} alt="logo" className="pt-14 pb-12" />
+      <Link href="/">
+        <Image src={logo} alt="logo" className="pt-14 pb-12" />
+      </Link>
       <div
         className="flex flex-col justify-center 
       items-center gap-4 pb-8 text-white font-Manrope

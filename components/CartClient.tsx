@@ -4,7 +4,7 @@ import CartIcon from "../public/assets/shared/desktop/icon-cart.svg";
 import Image from "next/image";
 import { Modal } from "antd";
 import { SubmitTypes } from "./AddCart";
-import CustomButton from "./CustomButton";
+import Link from "next/link";
 
 const CartClient = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,6 +24,7 @@ const CartClient = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+  
 
   // Increasing values
   const handleValueIncrement = (id: number) => {
@@ -60,6 +61,11 @@ const CartClient = () => {
   const handleRemoveAll = () => {
     setCartData([]);
     localStorage.removeItem("cartItems");
+    localStorage.removeItem("totalPrice");
+  };
+  // make a function to add total price in local storage
+  const totalPriceLocalStorage = () => {
+    localStorage.setItem("totalPrice", JSON.stringify(calculateTotalPrice()));
   };
 
   return (
@@ -120,12 +126,15 @@ const CartClient = () => {
             </span>
             ${calculateTotalPrice().toFixed(0)}
           </p>
-          <button
-            type="button"
-            className="bg-customYellow text-white w-full border-0 py-3 uppercase tracking-[1.5px]"
-          >
-            Checkout
-          </button>
+          <Link href="/checkout">
+            <button
+              type="button"
+              onClick={totalPriceLocalStorage}
+              className="bg-customYellow text-white w-full border-0 py-3 uppercase tracking-[1.5px]"
+            >
+              Checkout
+            </button>
+          </Link>
           <button
             type="button"
             className="bg-red-500 text-white w-full border-0 py-3 uppercase tracking-[1.5px]"
