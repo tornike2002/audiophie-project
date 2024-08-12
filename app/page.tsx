@@ -9,6 +9,7 @@ import greySpeaker from "../public/assets/home/mobile/image-speaker-zx7.jpg";
 import blackairpods from "../public/assets/home/mobile/image-earphones-yx1.jpg";
 import Image from "next/image";
 import Blog from "@/components/Blog";
+import Link from "next/link";
 export default function Home() {
   return (
     <main>
@@ -59,13 +60,15 @@ export default function Home() {
           >
             ZX7 SPEAKER
           </h1>
-          <button
-            className="text-black font-Manrope text-sm font-bold
+          <Link href="/speakers/5">
+            <button
+              className="text-black font-Manrope text-sm font-bold
            tracking-[1px] uppercase bg-transparent 
            border py-[15px] px-[30px] border-black"
-          >
-            SEE PRODUCT
-          </button>
+            >
+              SEE PRODUCT
+            </button>
+          </Link>
         </div>
       </section>
       {/* airpods black section */}
@@ -78,13 +81,15 @@ export default function Home() {
           >
             YX1 EARPHONES
           </h1>
-          <button
-            className="text-black font-Manrope text-sm font-bold
+          <Link href="/earphones/1">
+            <button
+              className="text-black font-Manrope text-sm font-bold
            tracking-[1px] uppercase bg-transparent 
            border py-[15px] px-[30px] border-black"
-          >
-            SEE PRODUCT
-          </button>
+            >
+              SEE PRODUCT
+            </button>
+          </Link>
         </div>
       </section>
       {/* blog section */}

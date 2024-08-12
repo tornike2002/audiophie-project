@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-
 import { Button, Form, Input, Select, Space } from "antd";
+import { useEffect, useState } from "react";
 const { Option } = Select;
 
 const layout = {
@@ -13,16 +13,22 @@ const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
 
+
 const CheckoutPage = () => {
+  const [totalPrice, setTotalPrice] = useState<number>(0);
   const [form] = Form.useForm();
 
   const onFinish = (values: any) => {
     console.log(values);
-  };
-
-  const onReset = () => {
     form.resetFields();
   };
+
+  useEffect(() => {
+    const totalPriceNumber = localStorage.getItem("totalPrice");
+    if (totalPriceNumber) {
+      setTotalPrice(JSON.parse(totalPriceNumber) as number);
+    }
+  }, []);
 
   return (
     <section className="px-6 py-5">
@@ -110,9 +116,6 @@ const CheckoutPage = () => {
               <Button type="primary" htmlType="submit">
                 Submit
               </Button>
-              <Button htmlType="button" onClick={onReset}>
-                Reset
-              </Button>
             </Space>
           </Form.Item>
         </Form>
@@ -124,10 +127,18 @@ const CheckoutPage = () => {
           </h1>
           <div className="flex items-center justify-between">
             <span className="text-black font-Manrope text-[15px] leading-[25px] opacity-50">
+              Payment:
+            </span>
+            <span className="text-black font-Manrope text-lg font-bold uppercase">
+              Cash on Delivery
+            </span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-black font-Manrope text-[15px] leading-[25px] opacity-50">
               TOTAL
             </span>
             <span className="text-black font-Manrope text-lg font-bold uppercase">
-              #Price
+              ${totalPrice}
             </span>
           </div>
           <div className="flex items-center justify-between">
@@ -143,9 +154,15 @@ const CheckoutPage = () => {
               GrandTotal:
             </span>
             <span className="text-customYellow font-Manrope text-lg font-bold uppercase">
-              $Price
+              ${totalPrice + 50}
             </span>
           </div>
+          <button
+            type="button"
+            className="px-5 py-3 bg-customYellow rounded-md text-white font-bold font-Manrope"
+          >
+            Order
+          </button>
         </div>
       </div>
     </section>
